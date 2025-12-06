@@ -72,4 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
  in asset
 Email: admin@test.com
-Password: admin12389889898
+Password: admin123
