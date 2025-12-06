@@ -1,0 +1,6 @@
+asset_number,asset_description,building,floor,department,room,condition,status,notes
+IT2025010001,Dell OptiPlex Desktop,Main Building,1st Floor,IT Department,Room 101,excellent,active,Primary workstation
+IT2025010002,HP LaserJet Printer,Main Building,1st Floor,HR Department,Room 102,good,active,Network printer
+IT2025010003,Canon Document Scanner,Main Building,2nd Floor,Finance Department,Room 201,excellent,active,Document scanner
+IT2025010004,Cisco Managed Switch,Main Building,Basement,IT Department,Server Room,excellent,active,Core switch
+IT2025010005,Lenovo ThinkPad Laptop,Main Building,3rd Floor,Sales Department,Room 301,good,active,Sales laptop

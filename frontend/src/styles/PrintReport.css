@@ -1,0 +1,62 @@
+/* Print Styles for Monthly Report */
+@media print {
+  /* Hide everything except the report */
+  body * {
+    visibility: hidden;
+  }
+  
+  #monthly-report,
+  #monthly-report * {
+    visibility: visible;
+  }
+  
+  #monthly-report {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Hide modal overlay and buttons */
+  .modal-overlay {
+    background: white !important;
+  }
+  
+  .modal-header button,
+  .close-btn {
+    display: none !important;
+  }
+  
+  /* Optimize for print */
+  .modal-content {
+    box-shadow: none !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Page breaks */
+  table {
+    page-break-inside: auto;
+  }
+  
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  /* Better print colors */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Remove unnecessary padding in print */
+  @page {
+    margin: 0.5cm;
+  }
+}

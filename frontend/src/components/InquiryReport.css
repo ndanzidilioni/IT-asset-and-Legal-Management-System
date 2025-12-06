@@ -1,0 +1,173 @@
+.inquiry-report-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+/* Error Message */
+.error-message {
+  background: #fed7d7;
+  color: #742a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #feb2b2;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #4299e1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Table Container */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.inquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inquiry-table th {
+  background: #f7fafc;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.inquiry-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.inquiry-table tr:hover {
+  background-color: #f7fafc;
+}
+
+.client-name {
+  font-weight: 600;
+  color: #2d3748;
+  min-width: 150px;
+}
+
+.company {
+  color: #4a5568;
+  min-width: 150px;
+}
+
+.description {
+  color: #718096;
+  line-height: 1.5;
+  max-width: 400px;
+  word-wrap: break-word;
+}
+
+.status {
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.open {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.status-badge.closed {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.no-data {
+  text-align: center;
+  color: #718096;
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .inquiry-report-container {
+    padding: 1rem;
+  }
+  
+  .report-title {
+    font-size: 1.5rem;
+  }
+  
+  .inquiry-table {
+    font-size: 0.9rem;
+  }
+  
+  .inquiry-table th,
+  .inquiry-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .description {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inquiry-table {
+    font-size: 0.8rem;
+  }
+  
+  .inquiry-table th,
+  .inquiry-table td {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .description {
+    max-width: 150px;
+  }
+}

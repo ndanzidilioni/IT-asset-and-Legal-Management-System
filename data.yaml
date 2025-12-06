@@ -1,0 +1,108 @@
+openapi: 3.0.4
+info:
+  title: Student API
+  description: Student Demo API by Dilioni
+  contact:
+    name: Dilioni
+    url: http://dilioni.com
+  version: 1.0.0
+servers: 
+  - url: http://devapi.com
+  - url: http://prodapi.com
+paths:
+  /students:
+    description: Student Resourse
+    get:
+      description: Operation to Fetch Student
+      parameters: 
+        - in: query
+          name: Studentname
+          required: true
+          schema:
+            type: string
+            example: Ajmal
+      responses:
+        200:
+          description: Seccess Response
+          content:
+           application/json:
+            schema:
+              $ref: '#/components/schemas/students'
+    post:
+      summary: Add a new student
+      description: Add a new Student
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/student'
+      responses:
+        '201':
+          description: Record Successfully Added
+  /student{id}:
+    decription: Get Student based on Path Parameter
+    get:
+      summary: Get Student by ID
+      description: Get Student based on Path Parameter
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success Response with Path Param
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/students'
+components:
+  schemas:
+    student:
+      type: object
+      properties:
+        StudentID:
+          type: integer
+          example: 3
+        StudentName:
+          type: string
+          example: Dilioni
+        StudentRemarks:
+          type: string
+          example: High Grade Student
+
+    students:
+      type: array
+      items:
+        type: object
+        properties:
+          StudentID:
+            type: integer
+            example: 3
+          StudentName:
+            type: string
+            example: Dilioni
+          StudentRemarks:
+            type: string
+            example: High Grade Student
+
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+netstat -an | findstr :8080

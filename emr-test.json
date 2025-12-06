@@ -1,0 +1,918 @@
+
+{
+  "status": "Success",
+  "message": [
+    {
+      "id": 15065,
+      "name": "Albumin/globulin Ratio"
+    },
+    {
+      "id": 15066,
+      "name": " Amylase "
+    },
+    {
+      "id": 15067,
+      "name": "Serum Phosphorus"
+    },
+    {
+      "id": 15068,
+      "name": "Serum Calcium"
+    },
+    {
+      "id": 15069,
+      "name": "Serum Total Cholesterol"
+    },
+    {
+      "id": 15070,
+      "name": "Cpk (Creatine Phospho Kinase) Total "
+    },
+    {
+      "id": 15071,
+      "name": "Serum Creatinine"
+    },
+    {
+      "id": 15072,
+      "name": " Total Bilirubin "
+    },
+    {
+      "id": 15073,
+      "name": " Direct Bilirubin "
+    },
+    {
+      "id": 15074,
+      "name": "Serum Gamma Glutamyl Transferase (Ggt) "
+    },
+    {
+      "id": 15075,
+      "name": " Alkaline Phosphate (Alp) "
+    },
+    {
+      "id": 15076,
+      "name": "Sgot/ast"
+    },
+    {
+      "id": 15077,
+      "name": "Sgpt/alt"
+    },
+    {
+      "id": 15078,
+      "name": "Blood Glucose Level- Fasting "
+    },
+    {
+      "id": 15079,
+      "name": " Serum Hdl Cholesteral"
+    },
+    {
+      "id": 15080,
+      "name": "Serum Lactate Dehydrogenase (Ldh)"
+    },
+    {
+      "id": 15081,
+      "name": "Serum Ldl-cholesteral"
+    },
+    {
+      "id": 15082,
+      "name": "Total Protein "
+    },
+    {
+      "id": 15083,
+      "name": "Serum Triglycerides"
+    },
+    {
+      "id": 15084,
+      "name": "Blood Urea Nitrogen (Bun)/ Serum Urea"
+    },
+    {
+      "id": 15085,
+      "name": " Uric Acid "
+    },
+    {
+      "id": 15086,
+      "name": "Serum Troponin T"
+    },
+    {
+      "id": 15087,
+      "name": " Ck-mb Fraction "
+    },
+    {
+      "id": 15088,
+      "name": "Serum Potassium"
+    },
+    {
+      "id": 15089,
+      "name": " Serum Sodium"
+    },
+    {
+      "id": 15090,
+      "name": "Serum Chloride"
+    },
+    {
+      "id": 15091,
+      "name": "Serum Magnesium"
+    },
+    {
+      "id": 15092,
+      "name": " Hb Electrophoresis "
+    },
+    {
+      "id": 15093,
+      "name": " Blood Gases Analysis (Abg)"
+    },
+    {
+      "id": 15094,
+      "name": "Serum Ferritin"
+    },
+    {
+      "id": 15095,
+      "name": "Total Ion Binding Capacity"
+    },
+    {
+      "id": 15096,
+      "name": "Glaycated Haemoblobin (Hba1c) "
+    },
+    {
+      "id": 15097,
+      "name": "Microprotein Test"
+    },
+    {
+      "id": 15098,
+      "name": " Prothrombin Time ( Pt) "
+    },
+    {
+      "id": 15099,
+      "name": " Partial Prothrombin Time  (Ptt) "
+    },
+    {
+      "id": 15100,
+      "name": " Globulin "
+    },
+    {
+      "id": 15101,
+      "name": "Abo Blood Grouping"
+    },
+    {
+      "id": 15102,
+      "name": "Compatibility Test/procedure"
+    },
+    {
+      "id": 15103,
+      "name": "  Direct Coombs Test "
+    },
+    {
+      "id": 15104,
+      "name": "  Indirect Coombs Test "
+    },
+    {
+      "id": 15106,
+      "name": "  Bleeding Factor Viii"
+    },
+    {
+      "id": 15107,
+      "name": " Bleeding Time  (Bt) "
+    },
+    {
+      "id": 15108,
+      "name": " Clotting Time (Ct) "
+    },
+    {
+      "id": 15109,
+      "name": "Erythrocytes Sendimentation Rate- Esr "
+    },
+    {
+      "id": 15110,
+      "name": " Cbc-fbp (Full Blood Picture) "
+    },
+    {
+      "id": 15111,
+      "name": "Haemoglobin Level"
+    },
+    {
+      "id": 15112,
+      "name": "  Reticulocyte Count "
+    },
+    {
+      "id": 15113,
+      "name": " Sickling Test (Sct) "
+    },
+    {
+      "id": 15114,
+      "name": " Blood Film For Periferal Smear "
+    },
+    {
+      "id": 15115,
+      "name": " Blood Culture "
+    },
+    {
+      "id": 15116,
+      "name": " Stool Culture "
+    },
+    {
+      "id": 15117,
+      "name": " Sputum For Gene Expert "
+    },
+    {
+      "id": 15118,
+      "name": " Sputum C/s "
+    },
+    {
+      "id": 15119,
+      "name": "  High Vaginal Swab, Culture( H.v.s R &amp; C/s) "
+    },
+    {
+      "id": 15120,
+      "name": " Pleural Fluid R &amp; C/s "
+    },
+    {
+      "id": 15121,
+      "name": " Ascitic Fluid R &amp; C/s "
+    },
+    {
+      "id": 15122,
+      "name": " C.s.f. C/s &amp; R "
+    },
+    {
+      "id": 15123,
+      "name": " Urethral Gm .stain  &amp; C/s "
+    },
+    {
+      "id": 15124,
+      "name": " Throat R&amp; C/s "
+    },
+    {
+      "id": 15125,
+      "name": " Urine C/s "
+    },
+    {
+      "id": 15126,
+      "name": "Pus Swab C/s"
+    },
+    {
+      "id": 15127,
+      "name": "Skin Scraping For Fungi Culture "
+    },
+    {
+      "id": 15128,
+      "name": " Widal Test "
+    },
+    {
+      "id": 15129,
+      "name": " Asot "
+    },
+    {
+      "id": 15130,
+      "name": " Hbv( Hepatitis B)/hbsag Rapid"
+    },
+    {
+      "id": 15131,
+      "name": " Hav( Hepatitis A) Ant Hav "
+    },
+    {
+      "id": 15132,
+      "name": " Hcv( Hepatitis C) By Elisa"
+    },
+    {
+      "id": 15133,
+      "name": "Hiv Rapid Test"
+    },
+    {
+      "id": 15134,
+      "name": " Crp "
+    },
+    {
+      "id": 15135,
+      "name": "Rheumatoid Factor(Rf)"
+    },
+    {
+      "id": 15136,
+      "name": " Vdrl"
+    },
+    {
+      "id": 15137,
+      "name": "  Dengue Rapid Test "
+    },
+    {
+      "id": 15138,
+      "name": "  H.pylori-rapid "
+    },
+    {
+      "id": 15139,
+      "name": "  H .pylori  Antigen "
+    },
+    {
+      "id": 15140,
+      "name": "  Urine Pregnancy Test (Upt) "
+    },
+    {
+      "id": 15141,
+      "name": "Alpha Feto Protein (Afp Tumor Marker)"
+    },
+    {
+      "id": 15142,
+      "name": "Free Prostatic Specific Antigen (Psa)"
+    },
+    {
+      "id": 15143,
+      "name": "Cancer Antigen 125 (Ca 125)"
+    },
+    {
+      "id": 15144,
+      "name": " Carcino Embryonic Antigen (Cea) "
+    },
+    {
+      "id": 15145,
+      "name": " Bence Jones Protein "
+    },
+    {
+      "id": 15146,
+      "name": "Serum Cortisol "
+    },
+    {
+      "id": 15147,
+      "name": " Thyroid Function ( Tsh) "
+    },
+    {
+      "id": 15148,
+      "name": "  Thyroid Function  Ft3/t3 "
+    },
+    {
+      "id": 15149,
+      "name": "  Thyroid Function Ft4/t4 "
+    },
+    {
+      "id": 15150,
+      "name": " Prolactin "
+    },
+    {
+      "id": 15151,
+      "name": " Progesterone  "
+    },
+    {
+      "id": 15152,
+      "name": " Lutenizing Hormone "
+    },
+    {
+      "id": 15153,
+      "name": " Follicle Stimulating Hormone ( Fsh) "
+    },
+    {
+      "id": 15154,
+      "name": "Testosterone Level"
+    },
+    {
+      "id": 15155,
+      "name": "  Estradiol "
+    },
+    {
+      "id": 15156,
+      "name": " H. C. G "
+    },
+    {
+      "id": 15157,
+      "name": "  Hiv Combi Pt "
+    },
+    {
+      "id": 15158,
+      "name": " Toxo Igg "
+    },
+    {
+      "id": 15159,
+      "name": " C.m.  Vigg "
+    },
+    {
+      "id": 15160,
+      "name": " Rubella Antigen "
+    },
+    {
+      "id": 15161,
+      "name": " Rubella Antibody "
+    },
+    {
+      "id": 15162,
+      "name": "  Vitamin D2 -1, 25 - Dihydroxyria Serum"
+    },
+    {
+      "id": 15163,
+      "name": "  Vitamin B12 "
+    },
+    {
+      "id": 15164,
+      "name": " Platelets Rich Protein (Prp) "
+    },
+    {
+      "id": 15165,
+      "name": " Blood Slide For Malaria "
+    },
+    {
+      "id": 15166,
+      "name": " Occult Blood "
+    },
+    {
+      "id": 15167,
+      "name": " Stool Routine "
+    },
+    {
+      "id": 15168,
+      "name": "  Urine Bence Jones Protein "
+    },
+    {
+      "id": 15169,
+      "name": "Urinalysis"
+    },
+    {
+      "id": 15170,
+      "name": " B/s Microfilaria "
+    },
+    {
+      "id": 19859,
+      "name": "Electrolytes"
+    },
+    {
+      "id": 25844,
+      "name": "Rhesus Factor (Rh Factor)"
+    },
+    {
+      "id": 25845,
+      "name": "Malaria Rapid Diagnostic Test (Mrdt)"
+    },
+    {
+      "id": 26022,
+      "name": "Cobas Precicontrol Cc Multi 1 "
+    },
+    {
+      "id": 26023,
+      "name": "Cobas Precicontrol Cc Multi 2"
+    },
+    {
+      "id": 26025,
+      "name": "Cobas Creaj (Creatinine) Integra"
+    },
+    {
+      "id": 26026,
+      "name": "Cobas C.f.a.s"
+    },
+    {
+      "id": 26039,
+      "name": "Cobas Astl(Got),integra"
+    },
+    {
+      "id": 26233,
+      "name": "Cooler Boxes For Sample Transportation Small"
+    },
+    {
+      "id": 26234,
+      "name": "Cooler Boxes For Blood  "
+    },
+    {
+      "id": 26248,
+      "name": "Coller Box For Blood Small Yellow (5lts-7lts)"
+    },
+    {
+      "id": 26519,
+      "name": "Covid 19 Ag Detection"
+    },
+    {
+      "id": 29001,
+      "name": "Cooler Boxes For  Blood From Lab To Wards Small (5lts-7lts)"
+    },
+    {
+      "id": 29031,
+      "name": "Cobas Alb Bcg (Albumin) Integra"
+    },
+    {
+      "id": 29032,
+      "name": "Cobas Chol (Cholesterol) Integra"
+    },
+    {
+      "id": 29044,
+      "name": "Cobas Gluc Hk (Glucose) (200t), Integra"
+    },
+    {
+      "id": 29045,
+      "name": "Cobas Hdl-c (Hdl Cholesterol) Gen 4, Itegra"
+    },
+    {
+      "id": 29047,
+      "name": "Cobas Ggt Reagent, Integra"
+    },
+    {
+      "id": 29185,
+      "name": "Microfilaria"
+    },
+    {
+      "id": 29498,
+      "name": "    Ci-trol 3 10x 1ml"
+    },
+    {
+      "id": 29500,
+      "name": "Ca Clean 1 50ml"
+    },
+    {
+      "id": 29839,
+      "name": "Full Automated  Chemistry Analyzer Spare"
+    },
+    {
+      "id": 29861,
+      "name": "Tissue Biopsy"
+    },
+    {
+      "id": 29862,
+      "name": "Serum Protein Electrophoresis"
+    },
+    {
+      "id": 29879,
+      "name": "Pus Culture &amp; Sensitivity"
+    },
+    {
+      "id": 29932,
+      "name": "  Csf C/s &amp; R"
+    },
+    {
+      "id": 30201,
+      "name": "Cover Slips 22x60mm For Slides"
+    },
+    {
+      "id": 30368,
+      "name": "Calcium Chloride Solution 10x 15ml"
+    },
+    {
+      "id": 30663,
+      "name": "  Cg4+"
+    },
+    {
+      "id": 30664,
+      "name": "Chem+"
+    },
+    {
+      "id": 31511,
+      "name": "Cooler Box 4.75l"
+    },
+    {
+      "id": 31818,
+      "name": "Cobas Crphs ( Cardiac C-reactive Protein) Latex"
+    },
+    {
+      "id": 31822,
+      "name": "Spark R2 Fan Assyh For Ge H&#039;care Logiq V5"
+    },
+    {
+      "id": 31965,
+      "name": "Cool Box 60lts"
+    },
+    {
+      "id": 32320,
+      "name": "Cupboard For Tools Installation 1 Set (60cmx90cm)"
+    },
+    {
+      "id": 33689,
+      "name": "Alanine Amino Trans Alt (Kit 500)"
+    },
+    {
+      "id": 34019,
+      "name": "25-oh Vitamin D (Calcidiol)- Hormonal"
+    },
+    {
+      "id": 35449,
+      "name": "Micropipette  -1000ul"
+    },
+    {
+      "id": 35450,
+      "name": "Micropipette 0-200ul"
+    },
+    {
+      "id": 35451,
+      "name": "Sample  Probe (D76)"
+    },
+    {
+      "id": 35647,
+      "name": "Hiv Rapid Test Kit (Sd Bioline H.i.v1/2)"
+    },
+    {
+      "id": 35648,
+      "name": "Architect C1400 Alkaline Phosphatase Reagent(Alp)kit (10*84mls+10*35mls)"
+    },
+    {
+      "id": 35649,
+      "name": "Architect Septum  P/200"
+    },
+    {
+      "id": 36098,
+      "name": "Citrol 1"
+    },
+    {
+      "id": 36099,
+      "name": "Citrol 2"
+    },
+    {
+      "id": 36100,
+      "name": "Clean1"
+    },
+    {
+      "id": 36104,
+      "name": " Hiv Screening Biol-line"
+    },
+    {
+      "id": 36105,
+      "name": " Hiv Screening Uni-gold"
+    },
+    {
+      "id": 36106,
+      "name": " Hiv Screening  By Elisa"
+    },
+    {
+      "id": 36107,
+      "name": " Hcv( Hepatitis C) Rapid"
+    },
+    {
+      "id": 36108,
+      "name": " Hbv( Hepatitis B)/hbsag By Elisa"
+    },
+    {
+      "id": 36109,
+      "name": "Tissue C/s"
+    },
+    {
+      "id": 36150,
+      "name": "  Ra Factor "
+    },
+    {
+      "id": 36151,
+      "name": " Blood Xmatching Procedure"
+    },
+    {
+      "id": 36287,
+      "name": "  Vitamin D 12"
+    },
+    {
+      "id": 36288,
+      "name": "Aterial Blood Gas"
+    },
+    {
+      "id": 36383,
+      "name": "Toxo Igm"
+    },
+    {
+      "id": 36490,
+      "name": "Cobas Chol-cholesterol (Kit/400t)"
+    },
+    {
+      "id": 36491,
+      "name": "Cobad  Ldl-cholesterol (Kit/175t)"
+    },
+    {
+      "id": 36492,
+      "name": "Cobas Hdl-cholesterol  (Kit200t)"
+    },
+    {
+      "id": 36493,
+      "name": "Cobas Triglycerides  (Kit 255t)"
+    },
+    {
+      "id": 36494,
+      "name": "Cobas Alkaline Phosphatise (Alp)  (Kit/200t)"
+    },
+    {
+      "id": 36495,
+      "name": "Cobas Alt/gpt  (Kit/500t)"
+    },
+    {
+      "id": 36496,
+      "name": "Cobas Ast/got  (Kit/500t)"
+    },
+    {
+      "id": 36497,
+      "name": "Cobas Total Protein  (Kit/500t)"
+    },
+    {
+      "id": 36498,
+      "name": "Cobas  Pcccm 1  (4*5 Mls)"
+    },
+    {
+      "id": 36499,
+      "name": "Cobas Pcccm 2 (4*5 Mls)"
+    },
+    {
+      "id": 36500,
+      "name": "Cobas Integra Sample Cups White  (Pkt/1000 Pcs)"
+    },
+    {
+      "id": 36501,
+      "name": "Cobas  Integra Sample Cups White"
+    },
+    {
+      "id": 36502,
+      "name": "Cobas Integra Probe Set  (Set/2)"
+    },
+    {
+      "id": 36503,
+      "name": "Cobas Microcuvettes (Pcs 20000)"
+    },
+    {
+      "id": 36504,
+      "name": "Cobas Ise Calibrator Indirect/urine  (1 * 250 Mls)"
+    },
+    {
+      "id": 36505,
+      "name": "Cobas Ise Calibrator Direct (1 *250mls)"
+    },
+    {
+      "id": 36563,
+      "name": "Serum Vit B12"
+    },
+    {
+      "id": 36714,
+      "name": "Bleeding/clotting Time"
+    },
+    {
+      "id": 36776,
+      "name": "Albumin-glob"
+    },
+    {
+      "id": 36778,
+      "name": "Blood Glucose Level  (F/r/ Pp/bsl)"
+    },
+    {
+      "id": 36779,
+      "name": "Blood Glucose Level- Postprandial"
+    },
+    {
+      "id": 36780,
+      "name": "Csf Glucose"
+    },
+    {
+      "id": 36781,
+      "name": "Csf Protein"
+    },
+    {
+      "id": 36782,
+      "name": "Serum Troponin I"
+    },
+    {
+      "id": 36783,
+      "name": "Ck-mb "
+    },
+    {
+      "id": 36800,
+      "name": "Cd4 T/ Cd8 T Lymphocyte Count"
+    },
+    {
+      "id": 36801,
+      "name": "Factor Vii"
+    },
+    {
+      "id": 36802,
+      "name": "G6pd"
+    },
+    {
+      "id": 36803,
+      "name": "Fibrinogen"
+    },
+    {
+      "id": 36804,
+      "name": "D-dimer(Fdp) "
+    },
+    {
+      "id": 36806,
+      "name": "Serum Acth "
+    },
+    {
+      "id": 36807,
+      "name": "Antinuclear Antibody (Ana) "
+    },
+    {
+      "id": 36808,
+      "name": "Anti-neutrophil Cytoplasmic Antibodies- (Panca/canca)  "
+    },
+    {
+      "id": 36809,
+      "name": "Hepatitis B Envelop Antibody (Anti- Hbe)"
+    },
+    {
+      "id": 36810,
+      "name": "Hepatitis B Surface Antibody (Anti Hbs)"
+    },
+    {
+      "id": 36811,
+      "name": "Anti-ro (Anti-ss-a) Sjogren&#039;s Syndrome "
+    },
+    {
+      "id": 36812,
+      "name": "Anti –sm Igg"
+    },
+    {
+      "id": 36813,
+      "name": "Anti M2-be-igg"
+    },
+    {
+      "id": 36814,
+      "name": "Anti –nrnp/sm Igg"
+    },
+    {
+      "id": 36815,
+      "name": "Anticentomere Igg"
+    },
+    {
+      "id": 36816,
+      "name": "Anti-ds-dna"
+    },
+    {
+      "id": 36817,
+      "name": "Hepatitis B Core Antibody (Anti-hbc) "
+    },
+    {
+      "id": 36818,
+      "name": "Anti- Scleroderma- 70 (Anti-scl-70 Igg) "
+    },
+    {
+      "id": 36819,
+      "name": "Anti- Ccp "
+    },
+    {
+      "id": 36820,
+      "name": "Anti-ssa Igg"
+    },
+    {
+      "id": 36821,
+      "name": "Anti-ssb Igg"
+    },
+    {
+      "id": 36822,
+      "name": "Brucella. Abortus "
+    },
+    {
+      "id": 36823,
+      "name": "Brucella. Melitensis "
+    },
+    {
+      "id": 36824,
+      "name": "C Reactive Protein- High Sensitive "
+    },
+    {
+      "id": 36832,
+      "name": "Blood Culture And Sensitivity (Aerobic And Anaerobic)"
+    },
+    {
+      "id": 36833,
+      "name": "C.s.f. Culture And Sensitivity"
+    },
+    {
+      "id": 36834,
+      "name": "C.s.f. Microbiology (Grams&#039; , Indian Ink, Zn Stain) "
+    },
+    {
+      "id": 36835,
+      "name": "Pleural/peritonial Fluid Culture And Sensitivity"
+    },
+    {
+      "id": 36836,
+      "name": "Sputum Culture &amp; Sensitivity"
+    },
+    {
+      "id": 36840,
+      "name": "Throat Swab Culture And Sensitivity"
+    },
+    {
+      "id": 36864,
+      "name": "C Reactive Protein- Standard"
+    },
+    {
+      "id": 36865,
+      "name": "C.m.v Igm "
+    },
+    {
+      "id": 36866,
+      "name": "C.m.v Quantitative Viral Load Pcr"
+    },
+    {
+      "id": 36867,
+      "name": "C-peptide"
+    },
+    {
+      "id": 36868,
+      "name": "Cryptococcal Antigen (Crag) "
+    },
+    {
+      "id": 36869,
+      "name": "Measles Antibody Igm"
+    },
+    {
+      "id": 36870,
+      "name": "Measles Antibody Igg "
+    },
+    {
+      "id": 36871,
+      "name": "Mumps Antibody Igm"
+    },
+    {
+      "id": 36872,
+      "name": "Mumps Antibody Igg "
+    },
+    {
+      "id": 36873,
+      "name": "Total Prostatic Specific Antigen (Psa) "
+    },
+    {
+      "id": 36874,
+      "name": "Testosterone Free "
+    }
+  ]
+}

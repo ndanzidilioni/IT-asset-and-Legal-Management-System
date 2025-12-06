@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Inquiry API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 15px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 3px; }
+        input, textarea { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ddd; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Inquiry System Test Page</h1>
+    
+    <div class="test-section">
+        <h3>Test API Connection</h3>
+        <button onclick="testConnection()">Test API Connection</button>
+        <div id="connectionResult" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Submit Test Inquiry</h3>
+        <input type="text" id="clientName" placeholder="Client Name" value="Test User">
+        <input type="text" id="company" placeholder="Company" value="Test Company">
+        <textarea id="description" placeholder="Description" rows="3">This is a test inquiry to verify the system is working correctly.</textarea>
+        <button onclick="submitInquiry()">Submit Test Inquiry</button>
+        <div id="submitResult" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Get All Inquiries</h3>
+        <button onclick="getInquiries()">Get All Inquiries</button>
+        <div id="inquiriesResult" class="result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api';
+
+        async function testConnection() {
+            try {
+                const response = await fetch(`${API_BASE}/inquiries/submit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        client_name: 'Connection Test',
+                        company: 'Test Corp',
+                        description: 'Testing API connection',
+                        status: 'open'
+                    })
+                });
+                
+                const result = await response.json();
+                document.getElementById('connectionResult').innerHTML = 
+                    `<strong>✅ API Connection Successful!</strong><br>Response: ${JSON.stringify(result, null, 2)}`;
+            } catch (error) {
+                document.getElementById('connectionResult').innerHTML = 
+                    `<strong>❌ API Connection Failed!</strong><br>Error: ${error.message}`;
+            }
+        }
+
+        async function submitInquiry() {
+            const inquiryData = {
+                client_name: document.getElementById('clientName').value,
+                company: document.getElementById('company').value,
+                description: document.getElementById('description').value,
+                status: 'open'
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/inquiries/submit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify(inquiryData)
+                });
+                
+                const result = await response.json();
+                document.getElementById('submitResult').innerHTML = 
+                    `<strong>✅ Inquiry Submitted!</strong><br>Response: ${JSON.stringify(result, null, 2)}`;
+            } catch (error) {
+                document.getElementById('submitResult').innerHTML = 
+                    `<strong>❌ Submission Failed!</strong><br>Error: ${error.message}`;
+            }
+        }
+
+        async function getInquiries() {
+            try {
+                const response = await fetch(`${API_BASE}/inquiries`, {
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
+                
+                const result = await response.json();
+                document.getElementById('inquiriesResult').innerHTML = 
+                    `<strong>📋 Inquiries Retrieved!</strong><br>Response: ${JSON.stringify(result, null, 2)}`;
+            } catch (error) {
+                document.getElementById('inquiriesResult').innerHTML = 
+                    `<strong>❌ Failed to Get Inquiries!</strong><br>Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

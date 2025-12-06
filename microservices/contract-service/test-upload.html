@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Contract Document Upload</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 600px; margin: 0 auto; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 5px; }
+        .success { background: #d1fae5; color: #065f46; }
+        .error { background: #fecaca; color: #991b1b; }
+        input, button { padding: 10px; margin: 10px 0; font-size: 16px; }
+        button { background: #3b82f6; color: white; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Document Upload</h1>
+    <p>This tests if the upload endpoint is working</p>
+    
+    <div>
+        <label>Contract ID (try 6, 7, 8, 9, or 10):</label><br>
+        <input type="number" id="contractId" value="6" min="1">
+    </div>
+    
+    <div>
+        <label>Select PDF/DOC file:</label><br>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.xls,.xlsx">
+    </div>
+    
+    <button onclick="testUpload()">📤 Upload Document</button>
+    <button onclick="testDownload()">📥 Download Document</button>
+    
+    <div id="result"></div>
+    
+    <script>
+        async function testUpload() {
+            const contractId = document.getElementById('contractId').value;
+            const fileInput = document.getElementById('fileInput');
+            const resultDiv = document.getElementById('result');
+            
+            if (!fileInput.files[0]) {
+                resultDiv.innerHTML = '<div class="result error">Please select a file first!</div>';
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('document', fileInput.files[0]);
+            
+            resultDiv.innerHTML = '<div class="result">⏳ Uploading...</div>';
+            
+            try {
+                const response = await fetch(`http://localhost:8015/api/contracts/${contractId}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `<div class="result success">✅ Success! ${data.message}<br><br>Document: ${data.data.document_name}</div>`;
+                } else {
+                    resultDiv.innerHTML = `<div class="result error">❌ Error: ${data.message}</div>`;
+                }
+            } catch (err) {
+                resultDiv.innerHTML = `<div class="result error">❌ Error: ${err.message}</div>`;
+            }
+        }
+        
+        function testDownload() {
+            const contractId = document.getElementById('contractId').value;
+            window.open(`http://localhost:8015/api/contracts/${contractId}/download`, '_blank');
+        }
+    </script>
+</body>
+</html>

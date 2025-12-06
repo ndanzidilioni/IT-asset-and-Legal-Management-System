@@ -1,0 +1,482 @@
+services:
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/kong/kong.yml
+    volumes:
+      - ./api-gateway/kong.yml:/kong/kong.yml
+    depends_on:
+      - user-service
+      - scheduling-service
+      - task-service
+      - asset-service
+      - inquiry-service
+      - notification-service
+      - reporting-service
+      # Legal Management Services
+      - case-service
+      - client-service
+      - document-service
+      - court-scheduling-service
+      - billing-finance-service
+      - compliance-security-service
+      - legal-analytics-service
+
+  # User Management Service
+  user-service:
+    build: ./user-service
+    ports:
+      - "8001:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=user-db
+      - DB_PORT=5432
+      - DB_DATABASE=user_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - user-db
+      - redis
+
+  # Scheduling Service
+  scheduling-service:
+    build: ./scheduling-service
+    ports:
+      - "8002:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=scheduling-db
+      - DB_PORT=5432
+      - DB_DATABASE=scheduling_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - scheduling-db
+      - redis
+
+  # Task Management Service
+  task-service:
+    build: ./task-service
+    ports:
+      - "8003:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=task-db
+      - DB_PORT=5432
+      - DB_DATABASE=task_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - task-db
+      - redis
+
+  # IT Asset Management Service
+  asset-service:
+    build: ./asset-service
+    ports:
+      - "8004:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=asset-db
+      - DB_PORT=5432
+      - DB_DATABASE=asset_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - asset-db
+      - redis
+
+  # Inquiry Management Service
+  inquiry-service:
+    build: ./inquiry-service
+    ports:
+      - "8005:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=inquiry-db
+      - DB_PORT=5432
+      - DB_DATABASE=inquiry_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - inquiry-db
+      - redis
+
+  # Notification Service
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "8006:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=notification-db
+      - DB_PORT=5432
+      - DB_DATABASE=notification_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - notification-db
+      - redis
+
+  # Reporting Service
+  reporting-service:
+    build: ./reporting-service
+    ports:
+      - "8007:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=reporting-db
+      - DB_PORT=5432
+      - DB_DATABASE=reporting_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - reporting-db
+      - redis
+
+  # Legal Management Services
+  
+  # Case Management Service
+  case-service:
+    build: ./case-service
+    ports:
+      - "8008:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=case-db
+      - DB_PORT=5432
+      - DB_DATABASE=case_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - case-db
+      - redis
+
+  # Client Management Service
+  client-service:
+    build: ./client-service
+    ports:
+      - "8009:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=client-db
+      - DB_PORT=5432
+      - DB_DATABASE=client_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - client-db
+      - redis
+
+  # Document Management Service
+  document-service:
+    build: ./document-service
+    ports:
+      - "8010:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=document-db
+      - DB_PORT=5432
+      - DB_DATABASE=document_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - document-db
+      - redis
+
+  # Court Scheduling Service
+  court-scheduling-service:
+    build: ./court-scheduling-service
+    ports:
+      - "8011:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=court-scheduling-db
+      - DB_PORT=5432
+      - DB_DATABASE=court_scheduling_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - court-scheduling-db
+      - redis
+
+  # Billing & Finance Service
+  billing-finance-service:
+    build: ./billing-finance-service
+    ports:
+      - "8012:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=billing-finance-db
+      - DB_PORT=5432
+      - DB_DATABASE=billing_finance_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - billing-finance-db
+      - redis
+
+  # Compliance & Security Service
+  compliance-security-service:
+    build: ./compliance-security-service
+    ports:
+      - "8013:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=compliance-security-db
+      - DB_PORT=5432
+      - DB_DATABASE=compliance_security_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - compliance-security-db
+      - redis
+
+  # Legal Analytics Service
+  legal-analytics-service:
+    build: ./legal-analytics-service
+    ports:
+      - "8014:8000"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=pgsql
+      - DB_HOST=legal-analytics-db
+      - DB_PORT=5432
+      - DB_DATABASE=legal_analytics_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - legal-analytics-db
+      - redis
+
+  # Frontend Application
+  frontend:
+    build:
+      context: ../
+      dockerfile: microservices/frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - api-gateway
+
+  # Databases
+  user-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=user_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - user_db_data:/var/lib/postgresql/data
+
+  scheduling-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=scheduling_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - scheduling_db_data:/var/lib/postgresql/data
+
+  task-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=task_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - task_db_data:/var/lib/postgresql/data
+
+  asset-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=asset_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - asset_db_data:/var/lib/postgresql/data
+
+  inquiry-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=inquiry_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - inquiry_db_data:/var/lib/postgresql/data
+
+  notification-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=notification_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - notification_db_data:/var/lib/postgresql/data
+
+  reporting-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=reporting_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - reporting_db_data:/var/lib/postgresql/data
+
+  # Legal Management Databases
+  
+  case-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=case_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - case_db_data:/var/lib/postgresql/data
+
+  client-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=client_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - client_db_data:/var/lib/postgresql/data
+
+  document-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=document_management_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - document_db_data:/var/lib/postgresql/data
+
+  court-scheduling-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=court_scheduling_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - court_scheduling_db_data:/var/lib/postgresql/data
+
+  billing-finance-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=billing_finance_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - billing_finance_db_data:/var/lib/postgresql/data
+
+  compliance-security-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=compliance_security_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - compliance_security_db_data:/var/lib/postgresql/data
+
+  legal-analytics-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=legal_analytics_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - legal_analytics_db_data:/var/lib/postgresql/data
+
+  # Redis for caching and queues
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  user_db_data:
+  scheduling_db_data:
+  task_db_data:
+  asset_db_data:
+  inquiry_db_data:
+  notification_db_data:
+  reporting_db_data:
+  # Legal Management Volumes
+  case_db_data:
+  client_db_data:
+  document_db_data:
+  court_scheduling_db_data:
+  billing_finance_db_data:
+  compliance_security_db_data:
+  legal_analytics_db_data:
+  redis_data:
+  grafana_data:
+

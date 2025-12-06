@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Legal Cases Test & Debug</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+        pre {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: bold;
+        }
+        .status.ok { background: #d1fae5; color: #065f46; }
+        .status.fail { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Legal Cases - Diagnostic Tool</h1>
+    
+    <div class="section">
+        <h2>1. Check User Authentication</h2>
+        <button onclick="checkAuth()">Check Auth Status</button>
+        <button onclick="showLocalStorage()">Show LocalStorage</button>
+        <div id="auth-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. Test Backend API</h2>
+        <button onclick="testCasesAPI()">Test GET /api/cases</button>
+        <button onclick="testCaseById()">Test GET /api/cases/{id}</button>
+        <div id="api-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>3. Check Create Button Logic</h2>
+        <button onclick="checkCreateButton()">Check Button Visibility</button>
+        <div id="button-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>4. Quick Fixes</h2>
+        <button onclick="clearAndReload()">Clear Cache & Reload</button>
+        <button onclick="window.location.href='http://localhost:3000/login'">Go to Login</button>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api';
+
+        function getAuthHeaders() {
+            const token = localStorage.getItem('token');
+            return {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
+            };
+        }
+
+        function checkAuth() {
+            const result = document.getElementById('auth-result');
+            const token = localStorage.getItem('token');
+            const userStr = localStorage.getItem('user');
+            
+            let html = '<h3>Authentication Status:</h3>';
+            
+            if (!token) {
+                html += '<div class="status fail">❌ NOT LOGGED IN</div>';
+                html += '<p class="error">No token found. Please <a href="http://localhost:3000/login">login</a> first.</p>';
+            } else {
+                html += '<div class="status ok">✅ TOKEN FOUND</div>';
+                html += `<p><strong>Token:</strong> <code>${token.substring(0, 30)}...</code></p>`;
+                
+                if (userStr) {
+                    try {
+                        const user = JSON.parse(userStr);
+                        html += '<div class="status ok">✅ USER DATA FOUND</div>';
+                        html += '<pre>' + JSON.stringify(user, null, 2) + '</pre>';
+                        
+                        if (user.role) {
+                            const canCreate = ['admin', 'lawyer', 'developer'].includes(user.role);
+                            html += `<p class="${canCreate ? 'success' : 'error'}">`;
+                            html += `<strong>Role:</strong> ${user.role}<br>`;
+                            html += `<strong>Can Create Cases:</strong> ${canCreate ? '✅ YES' : '❌ NO'}`;
+                            html += '</p>';
+                        }
+                    } catch (e) {
+                        html += '<div class="status fail">❌ INVALID USER DATA</div>';
+                        html += `<p class="error">Error parsing user: ${e.message}</p>`;
+                    }
+                } else {
+                    html += '<div class="status fail">❌ NO USER DATA</div>';
+                }
+            }
+            
+            result.innerHTML = html;
+        }
+
+        function showLocalStorage() {
+            const result = document.getElementById('auth-result');
+            let html = '<h3>LocalStorage Contents:</h3><pre>';
+            
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                html += `${key}: ${value}\n`;
+            }
+            
+            html += '</pre>';
+            result.innerHTML = html;
+        }
+
+        async function testCasesAPI() {
+            const result = document.getElementById('api-result');
+            result.innerHTML = '<p class="info">⏳ Testing API...</p>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/cases`, {
+                    headers: getAuthHeaders()
+                });
+                
+                let html = `<h3>GET /api/cases</h3>`;
+                html += `<p><strong>Status:</strong> <span class="${response.ok ? 'success' : 'error'}">${response.status} ${response.statusText}</span></p>`;
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    html += '<div class="status ok">✅ API WORKING</div>';
+                    html += `<p><strong>Cases Found:</strong> ${data.data?.length || 0}</p>`;
+                    html += '<p><strong>Response:</strong></p>';
+                    html += '<pre>' + JSON.stringify(data, null, 2).substring(0, 1000) + '...</pre>';
+                } else {
+                    html += '<div class="status fail">❌ API ERROR</div>';
+                    html += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                    
+                    if (response.status === 401) {
+                        html += '<p class="error">🔐 Authentication failed. Please <a href="http://localhost:3000/login">login</a> again.</p>';
+                    }
+                }
+                
+                result.innerHTML = html;
+            } catch (error) {
+                result.innerHTML = `<div class="status fail">❌ REQUEST FAILED</div><p class="error">${error.message}</p>`;
+            }
+        }
+
+        async function testCaseById() {
+            const result = document.getElementById('api-result');
+            
+            // First get list of cases to find an ID
+            try {
+                const listResponse = await fetch(`${API_BASE}/cases`, {
+                    headers: getAuthHeaders()
+                });
+                const listData = await listResponse.json();
+                
+                if (!listData.data || listData.data.length === 0) {
+                    result.innerHTML = '<p class="error">No cases found to test. Create a case first.</p>';
+                    return;
+                }
+                
+                const firstCase = listData.data[0];
+                const caseId = firstCase.id;
+                
+                result.innerHTML = '<p class="info">⏳ Testing single case API...</p>';
+                
+                const response = await fetch(`${API_BASE}/cases/${caseId}`, {
+                    headers: getAuthHeaders()
+                });
+                
+                let html = `<h3>GET /api/cases/${caseId}</h3>`;
+                html += `<p><strong>Status:</strong> <span class="${response.ok ? 'success' : 'error'}">${response.status} ${response.statusText}</span></p>`;
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    html += '<div class="status ok">✅ VIEW CASE API WORKING</div>';
+                    
+                    if (data.success && data.data) {
+                        html += '<div class="status ok">✅ Response has correct format (success + data)</div>';
+                    } else {
+                        html += '<div class="status fail">❌ Response missing success/data wrapper</div>';
+                    }
+                    
+                    html += '<p><strong>Response:</strong></p>';
+                    html += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                } else {
+                    html += '<div class="status fail">❌ API ERROR</div>';
+                    html += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                }
+                
+                result.innerHTML = html;
+            } catch (error) {
+                result.innerHTML = `<div class="status fail">❌ REQUEST FAILED</div><p class="error">${error.message}</p>`;
+            }
+        }
+
+        function checkCreateButton() {
+            const result = document.getElementById('button-result');
+            const userStr = localStorage.getItem('user');
+            
+            let html = '<h3>Create Button Visibility Check:</h3>';
+            
+            if (!userStr) {
+                html += '<div class="status fail">❌ NO USER DATA</div>';
+                html += '<p class="error">Cannot determine role. Please log in.</p>';
+            } else {
+                try {
+                    const user = JSON.parse(userStr);
+                    const userRole = user.role;
+                    const canCreateCase = userRole && (
+                        userRole === 'admin' || 
+                        userRole === 'lawyer' || 
+                        userRole === 'developer'
+                    );
+                    
+                    html += `<p><strong>User Role:</strong> <code>${userRole || 'undefined'}</code></p>`;
+                    html += `<p><strong>Can Create Case:</strong> ${canCreateCase}</p>`;
+                    
+                    if (canCreateCase) {
+                        html += '<div class="status ok">✅ CREATE BUTTON SHOULD BE VISIBLE</div>';
+                        html += '<p class="success">The "Create New Case" button should appear on the cases page.</p>';
+                    } else {
+                        html += '<div class="status fail">❌ CREATE BUTTON WILL NOT SHOW</div>';
+                        html += `<p class="error">Your role (${userRole}) does not have permission to create cases.</p>`;
+                        html += '<p>Only <strong>admin</strong>, <strong>lawyer</strong>, or <strong>developer</strong> can create cases.</p>';
+                    }
+                } catch (e) {
+                    html += '<div class="status fail">❌ ERROR</div>';
+                    html += `<p class="error">${e.message}</p>`;
+                }
+            }
+            
+            result.innerHTML = html;
+        }
+
+        function clearAndReload() {
+            if (confirm('This will clear your login session. Continue?')) {
+                localStorage.clear();
+                window.location.reload();
+            }
+        }
+
+        // Auto-check on load
+        window.addEventListener('load', () => {
+            checkAuth();
+        });
+    </script>
+</body>
+</html>
